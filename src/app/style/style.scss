@@ -1,0 +1,487 @@
+
+@font-face {
+  font-family: 'Trebuchet MS';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Trebuchet MS'), url('./fonts/trebuc.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Trebuchet MS Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Trebuchet MS Italic'), url('./fonts/Trebuchet-MS-Italic.woff') format('woff');
+}
+@media(min-width:767px){
+  html {
+    overflow: -moz-scrollbars-vertical;
+    overflow-y: scroll;
+    background: #000;
+  }
+}
+
+body::-webkit-scrollbar {
+  width: .5em;
+}
+
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #333;
+  outline: 1px solid #333;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'Trebuchet MS';
+}
+
+.mainHeader{
+  background: #000;
+  color: #fff;
+  padding: 15px 0;
+  .logoWrap{
+    text-align: center;
+    img{
+      width: 168px;
+      height: auto;
+    }
+  }
+  .topnav {
+    float: right;
+    a{
+      float: left;
+      display: block;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 8px 10px;
+      text-decoration: none;
+      font-size: 17px;
+    }
+
+  }
+}
+.navbar{
+  padding:0;
+  .leftMenuBar{
+    display: flex;
+    align-items: center;
+    position: relative;
+    .leftMenuIcon{
+      margin-right: 10px;
+      font-size: 24px;
+    }
+  }
+}
+
+.mainSearch{
+  background: #000;
+  padding: 0 0 20px;
+  transition: padding 300ms ease;
+  .mainArea{
+    margin: 0 auto;
+    width: 60%;
+    transition: 300ms ease;
+    form{
+      display: flex;
+      align-items: center;
+      background: #fff;
+      position: relative;
+      .icon{
+        position: absolute;
+        left: 20px;
+        top: 19px;
+        .fa{
+          font-size: 21px;
+        }
+      }
+      input{
+        height: 56px;
+        width: 73%;
+        border: none;
+        padding: 8px 10px 8px 50px;
+        margin: 0;
+        color: #000;
+        font-size: 24px;
+        line-height: 1.15;
+        overflow: visible;
+        &::placeholder{
+          font-size: 16px;
+        }
+        &:active, &:focus{
+          outline: none;
+          border: none;
+        }
+      }
+    }
+    .rightSearchDrop{
+      width: 27%;
+      text-align: center;
+      border-left: 1px solid #ccc;
+      .dropdown-toggle {
+        color: #675757c9;
+        font-weight: 500;
+        font-size: 24px;
+        &:after{
+          margin-left: 20px;
+        }
+      }
+    }
+  }
+  &.is-sticky{
+    position: fixed;
+    top: 0;
+    z-index: 9;
+    width: 100%;
+    padding: 7px 0!important;
+    transition: padding 300ms ease;
+    .mainArea{
+      width: 65%;
+      transition: 300ms ease;
+    }
+  }
+}
+.filterWrap{
+  padding: 10px 0;
+  background: #000;
+  color: #000;
+  .filterBtn{
+    float: left;
+    background: #000;
+    border: 1px solid #fff;
+    padding: 9px 15px;
+    cursor: pointer;
+    h4{
+      color: #fff;
+      font-size: 21px;
+      font-weight: 500;
+      margin: 0;
+      .fa{
+        margin-right: 15px;
+      }
+    }
+  }
+  p{
+    color: #fff;
+    display: inline-block;
+    padding: 7px 20px;
+    font-size: 20px;
+  }
+
+  .dropBox{
+    background: #000;
+    padding: 0 15px;
+    margin: 15px 0;
+    height: 0;
+    overflow: hidden;
+    transition: height 500ms;
+      h3{
+        font-size: 16px;
+        color: #fff;
+        margin: 10px 0;
+      }
+    .checkboxGroup{
+      margin-left: 10px;
+      label{
+        color: #fff;
+      }
+    }
+    &.open{
+      height: 200px;
+      transition: height 500ms;
+    }
+  }
+}
+.imagesScrollWrapper{
+  background: #000;
+  .grid{
+    display: flex;
+    flex-wrap: wrap;
+    img{
+      height: 100%;
+      width: 100%;
+    }
+    .item{
+      &.H{
+        flex-grow: 150!important;
+        flex-basis: 432px!important;
+        margin: 3px;
+        position: relative;
+      }
+      &.V{
+        flex-grow: 66.667!important;
+        flex-basis: 192px!important;
+        margin: 3px;
+        position: relative;
+      }
+      &:nth-child(4n){
+        flex-grow: 66.667!important;
+        flex-basis: 192px!important;
+        margin: 3px;
+        position: relative;
+      }
+      img{
+        object-fit: cover;
+        object-position: center;
+        cursor: pointer;
+        max-width: 900px;
+        max-height: 600px;
+        //aspect-ratio: 9/16;
+      }
+      &:hover{
+        .titleWrap{
+          display: block;
+        }
+      }
+    }
+    .titleWrap{
+      position: absolute;
+      display: none;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0,0,0,.5);
+      height: 30px;
+      padding: 5px;
+      p{
+        text-align: center;
+        color: #fff;
+      }
+    }
+    .infinite-scroll-component__outerdiv{
+      width: 100%;
+      .infinite-scroll-component{
+        display: flex;
+        flex-wrap: wrap;
+      }
+    }
+  }
+}
+
+.checkboxGroup{
+  label{
+    color: #fff;
+    font-size: 14px;
+  }
+  .container {
+    display: block;
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 4px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 18px;
+    width: 18px;
+    background-color: transparent;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  .container:hover input ~ .checkmark {
+    background-color: transparent;
+  }
+  .container input:checked ~ .checkmark {
+    background-color: transparent;
+  }
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  .container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  .container .checkmark:after {
+    left: 6px;
+    top: 3px;
+    width: 4px;
+    height: 8px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+}
+
+.footer{
+  background: #000;
+  padding:10px 0;
+  color: #fff;
+  display: none;
+  &.footerVisible{
+    display: block;
+  }
+  h1{
+    text-align: center;
+    color: rgba(255,255,255,0.66);
+    font-size: 27px;
+    margin-bottom: 25px;
+    margin-top: 10px;
+  }
+  h2{
+    font-size: 18px;
+  }
+  img{
+    margin-top: 60px;
+  }
+  h3{
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 14px 0 14px 0;
+  }
+  ul{
+    margin: 0;
+    padding: 0;
+    li{
+      list-style: none;
+      color: #fff;
+      margin: 6px;
+      font-size: 16px;
+      a{
+        color: #fff;
+        margin: 6px;
+        font-size: 16px;
+        text-decoration: none;
+      }
+    }
+  }
+  .scrollBtn{
+    position: fixed;
+    z-index: 99999;
+    right: 10px;
+    bottom: 10px;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    background-color: #333;
+    border: none;
+    text-indent: -9999px;
+    -webkit-border-radius: 60px;
+    -moz-border-radius: 60px;
+    border-radius: 60px;
+    &:after{
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-left: -8px;
+      margin-top: -12px;
+      height: 0;
+      width: 0;
+      border: 8px solid transparent;
+      border-bottom-color: #ffffff;
+    }
+  }
+}
+
+@media (max-width: 1199px){
+  .mainSearch .mainArea{
+    width: 100%;
+  }
+  .mainSearch.is-sticky .mainArea{
+    width: 100%;
+  }
+}
+
+@media(max-width: 767px){
+  .mainHeader {
+    .logoWrap{
+      text-align: left;
+      margin-top: 5px;
+      img{
+        width: 125px;
+      }
+    }
+    .topnav{
+      a{
+        padding: 6px 6px;
+        font-size: 15px;
+      }
+    }
+  }
+  .mainSearch {
+    .mainArea {
+      .rightSearchDrop {
+        .dropdown-toggle{
+          font-size: 16px;
+        }
+      }
+      form{
+        input{
+          font-size: 16px;
+          &::placeholder{
+            font-size: 14px;
+          }
+        }
+        .icon{
+          .fa{
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+  .filterWrap{
+    p{
+      font-size: 14px;
+      padding: 7px 8px;
+    }
+    .filterBtn {
+      padding: 9px 5px;
+      h4{
+        font-size: 16px;
+      }
+    }
+  }
+  .filterWrap .dropBox .checkboxGroup{
+    margin-left: 0;
+  }
+  .filterWrap .dropBox .checkboxGroup label{
+    padding-right: 0;
+  }
+  .filterWrap .dropBox{
+    margin: 3px 0;
+    &.open{
+      height: 351px;
+    }
+
+  }
+  .footer{
+    h3{
+      font-size: 16px;
+    }
+    p{
+      font-size: 14px;
+    }
+    img{
+      max-width: 100%;
+      margin-top: 5px;
+    }
+    ul{
+      li{
+        a{
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
