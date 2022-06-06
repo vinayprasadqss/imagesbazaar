@@ -1,5 +1,6 @@
 import React from 'react';
 import footerImg from './../../static/images/btn-Help.png';
+
 const Footer =()=>{
     const [showTopBtn, setShowTopBtn] = React.useState(false);
     React.useEffect(() => {
@@ -32,28 +33,28 @@ const Footer =()=>{
                              <div className="col">
                                  <h3>Company Info</h3>
                                  <ul>
-                                     <li><a href="">Home</a></li>
-                                     <li><a href="">About Us</a></li>
-                                     <li><a href="">Testimonials</a></li>
-                                     <li><a href="">Image Research</a></li>
+                                     <li><a>Home</a></li>
+                                     <li><a>About Us</a></li>
+                                     <li><a>Testimonials</a></li>
+                                     <li><a>Image Research</a></li>
                                  </ul>
                              </div>
                              <div className="col">
                                  <h3>Learn More</h3>
                                  <ul>
-                                     <li><a href="">Pricing</a></li>
-                                     <li><a href="">Licensing</a></li>
-                                     <li><a href="">Terms of Use</a></li>
-                                     <li><a href="">Privacy Policy</a></li>
+                                     <li><a>Pricing</a></li>
+                                     <li><a>Licensing</a></li>
+                                     <li><a>Terms of Use</a></li>
+                                     <li><a>Privacy Policy</a></li>
                                  </ul>
                              </div>
                              <div className="col">
                                  <h3>Need Help</h3>
                                  <ul>
-                                     <li><a href="">Contact Us</a></li>
-                                     <li><a href="">Search Tips</a></li>
-                                     <li><a href="">FAQ</a></li>
-                                     <li><a href="">Technical</a></li>
+                                     <li><a>Contact Us</a></li>
+                                     <li><a >Search Tips</a></li>
+                                     <li><a>FAQ</a></li>
+                                     <li><a>Technical</a></li>
                                  </ul>
                              </div>
                          </div>

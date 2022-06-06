@@ -1,12 +1,33 @@
-import React, {useEffect, useState} from 'react';
-import axios from "axios";
+import React, { useState} from 'react';
+import {SuggestionsListComponent} from "./AutoComplete";
+import {suggestions} from './../Constant';
 
-const SearchBar =({setSearchTerm,setImagesList, searchTerm})=>{
+
+const SearchBar =({setSearchTerm,setImagesList})=>{
     const [searchValue, setSearchValue] =useState("");
 
+    const [filteredSuggestions, setFilteredSuggestions] = useState([]);
+    const [activeSuggestionIndex, setActiveSuggestionIndex] = useState(0);
+    const [showSuggestions, setShowSuggestions] = useState(false);
+
+
     const onChangeSearch=(event)=>{
-       /* setImagesList([])*/
         setSearchValue(event.target.value);
+
+        const userInput = event.target.value;
+        const unLinked = suggestions.filter(
+            (suggestion) =>
+                suggestion.toLowerCase().indexOf(userInput.toLowerCase()) > -1
+        );
+        setFilteredSuggestions(unLinked);
+        setActiveSuggestionIndex(0);
+        setShowSuggestions(true);
+    }
+    const onKeyDown = (key) => {
+        if(key.keyCode === 13 || key.keyCode === 9){
+            //setSearchValue(filteredSuggestions[activeSuggestionIndex])
+            setFilteredSuggestions([])
+        }
     }
     const onSearchSubmit=(event)=>{
         event.preventDefault();
@@ -33,6 +54,8 @@ const SearchBar =({setSearchTerm,setImagesList, searchTerm})=>{
                                     type="text"
                                     placeholder={"Search the world's largest collection of Indian images"}
                                     onChange={onChangeSearch}
+                                    onKeyDown={onKeyDown}
+                                    value={searchValue}
                                 />
                                 <div className="rightSearchDrop">
                                     <div className="dropdown">
@@ -46,6 +69,19 @@ const SearchBar =({setSearchTerm,setImagesList, searchTerm})=>{
                                             </li>
                                         </ul>
                                     </div>
+                                </div>
+                                <div className="searchDropdownValue">
+                                    {showSuggestions && searchValue && <SuggestionsListComponent
+                                        filteredSuggestions={filteredSuggestions}
+                                        activeSuggestionIndex={activeSuggestionIndex}
+                                        setFilteredSuggestions={setFilteredSuggestions}
+                                        setInput={setSearchValue}
+                                        searchValue={searchValue}
+                                        setActiveSuggestionIndex={setActiveSuggestionIndex}
+                                        setShowSuggestions={setShowSuggestions}
+                                        onSearchSubmit={onSearchSubmit}
+                                        setImagesList={setImagesList} setSearchTerm={setSearchTerm}
+                                    />}
                                 </div>
                             </form>
                         </div>

@@ -13,14 +13,7 @@ const location_Label = [
     "Outdoor",
     "Studio Shot"
 ]
-const age_Label = [
-    "Baby",
-    "Child",
-    "Teenager",
-    "Young Adult",
-    "Mature Adult",
-    "Senior Adult"
-]
+
 const ageValues = [
     {
         label:"Baby",
@@ -61,7 +54,7 @@ const orientation_Label = [
     "Vertical",
 ]
 
-const Filter =({filterTerm, setFilterTerm, count, searchTerm, setSearchTerm, setImagesList})=>{
+const Filter =({filterTerm, setFilterTerm, count, searchTerm, setImagesList})=>{
     const [open, setOpen] = React.useState(false);
     const onClickFilter =()=>{
         setOpen(!open);

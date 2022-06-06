@@ -1,14 +1,14 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import logo from './../../static/images/logo.svg';
 
 const Header =()=>{
-    React.useEffect(() => {
+    useEffect(() => {
         window.addEventListener('scroll', isSticky);
         return () => {
             window.removeEventListener('scroll', isSticky);
         };
     });
-    const isSticky = (e) => {
+    const isSticky = () => {
         const header = document.querySelector('.mainSearch');
         const scrollTop = window.scrollY;
         scrollTop >= 100 ? header.classList.add('is-sticky') : header.classList.remove('is-sticky');

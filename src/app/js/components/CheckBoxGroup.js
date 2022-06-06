@@ -7,10 +7,6 @@ const CheckBoxGroup =({label, name, value, onChange})=>{
                 <input type="radio" name={name} value={value} onChange={onChange}/>
                     <span className="checkmark"></span>
             </label>
-           {/* <label>
-                <input type="checkbox"/>
-                {label}
-            </label>*/}
         </div>
     )
 }
