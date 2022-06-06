@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from './../../static/images/logo.svg';
+import { Outlet, Link } from "react-router-dom";
 
 const Header =()=>{
     React.useEffect(() => {
@@ -28,9 +29,13 @@ const Header =()=>{
                             </div>
                             <div className=" col-sm col-6">
                                 <div className="logoWrap">
-                                        <a href="">
-                                            <img src={logo} layout="responsive" width="100%" alt="image" className="placeholder-loader"/>
-                                        </a>
+                                    <Link to="/">
+                                        <img src={logo} layout="responsive" width="100%" alt="image" className="placeholder-loader"/>
+                                    </Link>
+
+                                   {/* <a href="">
+
+                                        </a>*/}
 
                                 </div>
                             </div>
@@ -38,9 +43,12 @@ const Header =()=>{
                             <div className="col-sm col-5" style={{paddingLeft:"0"}}>
                                 <div className="topnav">
                                     <a href="">Pricing</a>
-                                    <a href="" style ={{cursor:"pointer", border:"1px solid #fff"}}>
+                                    <Link to="/login" style ={{cursor:"pointer", border:"1px solid #fff"}}>
                                         <span className="ng-binding">Sign in</span>
-                                    </a>
+                                    </Link>
+{/*                                    <a href="" style ={{cursor:"pointer", border:"1px solid #fff"}}>
+                                        <span className="ng-binding">Sign in</span>
+                                    </a>*/}
                                 </div>
                             </div>
                         </div>

@@ -393,6 +393,23 @@ body::-webkit-scrollbar-thumb {
   }
 }
 
+.loginWrapper{
+  input{
+    font-size: 16px;
+  }
+  .logoWhite{
+    img{
+      color: #000;
+    }
+  }
+}
+.loading{
+  display: none;
+  &.Show{
+    display: inline;
+  }
+}
+
 @media (max-width: 1199px){
   .mainSearch .mainArea{
     width: 100%;
