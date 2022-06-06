@@ -18,7 +18,7 @@ const ImageScroll = ({searchTerm, filterTerm, imagesList,setImagesList, setCount
                 const apiRes = res?.data.posts;
                 const mergeData = [...imagesList, ...apiRes]
                 setImagesList(mergeData);
-                setCount(res?.data?.pageCount);
+                setCount(res?.data?.total);
             }).catch((err)=>{
                 console.log("error while loading images data", err);
         })
