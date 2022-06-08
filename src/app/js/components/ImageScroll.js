@@ -6,13 +6,14 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const ImageScroll = ({searchTerm, filterTerm, imagesList,setImagesList, setCount, count})=>{
     const PAGE_LIMIT = 10;
-    const apiPath = "https://imagebazaarapi.qsstechnosoft.com/api/search";
+    const apiPath = "https://imagebazaarapi.qsstechnosoft.com/api/search/";
+
     const getImagesList = ()=>{
         let pageNo=Math.ceil(imagesList.length/PAGE_LIMIT)+1;
         const queryParams = "?page=" + pageNo +"&sortBy=asc";
         const searchValue = searchTerm && searchTerm ;
         const filterValue = filterTerm && (Object.values(filterTerm));
-        const finalPath = apiPath +  queryParams + "&searchQuery="+ searchValue +filterValue;
+        const finalPath = apiPath + searchValue + queryParams + "&searchQuery="+ filterValue;
         axios.get(finalPath)
             .then((res)=>{
                 const apiRes = res?.data.posts;
@@ -29,7 +30,7 @@ const ImageScroll = ({searchTerm, filterTerm, imagesList,setImagesList, setCount
         const queryParams = "?page=" + pageNo +"&sortBy=asc";
         const searchValue = searchTerm && searchTerm ;
         const filterValue = filterTerm && (Object.values(filterTerm));
-        const finalPath = apiPath +  queryParams + "&searchQuery="+ searchValue +((Object.values(filterTerm).length>0)&&searchTerm ? ",":"")+filterValue;
+        const finalPath = apiPath + searchValue + queryParams + "&searchQuery="+ filterValue;
 
         axios.get(finalPath)
             .then((res)=>{
@@ -70,7 +71,7 @@ const ImageScroll = ({searchTerm, filterTerm, imagesList,setImagesList, setCount
                         {
                             imagesList && imagesList.length>0 && imagesList.map((item, index)=>{
                                 let templateStringForImage = `/dummy/${item?.image?.srNo}.jpg`;
-                                let dummyImg = item?.image?.srNo<30 ?templateStringForImage :"/dummy/1.jpg"
+                                let dummyImg = item?.image?.srNo<30 ?templateStringForImage :"/dummy/19.jpg"
                                 return(
                                     <div key={item?.image?.imageId +1} className={`item ${(item?.image?.keyword.toLowerCase().includes("vertical")?"V":"H")}`}>
                                         <LazyLoadImage

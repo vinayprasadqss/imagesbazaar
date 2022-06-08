@@ -4,7 +4,7 @@ import {suggestions} from './../Constant';
 
 
 const SearchBar =({setSearchTerm,setImagesList})=>{
-    const [searchValue, setSearchValue] =useState("");
+    const [searchValue, setSearchValue] =useState("202202");
 
     const [filteredSuggestions, setFilteredSuggestions] = useState([]);
     const [activeSuggestionIndex, setActiveSuggestionIndex] = useState(0);
@@ -64,8 +64,8 @@ const SearchBar =({setSearchTerm,setImagesList})=>{
                                     </span>
                                         <ul className="dropdown-menu">
                                             <li>
-                                                <a href="">Image</a>
-                                                <a href="">Video</a>
+                                                <a>Image</a>
+                                                <a>Video</a>
                                             </li>
                                         </ul>
                                     </div>

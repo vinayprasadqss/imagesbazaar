@@ -28,7 +28,7 @@ const Header =()=>{
                             </div>
                             <div className=" col-sm col-6">
                                 <div className="logoWrap">
-                                        <a href="">
+                                        <a>
                                             <img src={logo} layout="responsive" width="100%" alt="image" className="placeholder-loader"/>
                                         </a>
 
@@ -37,8 +37,8 @@ const Header =()=>{
 
                             <div className="col-sm col-5" style={{paddingLeft:"0"}}>
                                 <div className="topnav">
-                                    <a href="">Pricing</a>
-                                    <a href="" style ={{cursor:"pointer", border:"1px solid #fff"}}>
+                                    <a>Pricing</a>
+                                    <a style ={{cursor:"pointer", border:"1px solid #fff"}}>
                                         <span className="ng-binding">Sign in</span>
                                     </a>
                                 </div>
