@@ -144,6 +144,15 @@ body::-webkit-scrollbar-thumb {
     }
   }
 }
+.notSearchValue{
+  position: relative;
+  width: 100%;
+  background: #fff;
+  min-height: 500px;
+  text-align: center;
+  padding: 20px;
+  font-size: 24px;
+}
 .searchDropdownValue{
   position: absolute;
   top: 100%;
@@ -256,12 +265,12 @@ body::-webkit-scrollbar-thumb {
         margin: 3px;
         position: relative;
       }
-      &:nth-child(4n){
+/*      &:nth-child(4n){
         flex-grow: 66.667!important;
         flex-basis: 192px!important;
         margin: 3px;
         position: relative;
-      }
+      }*/
       img{
         object-fit: cover;
         object-position: center;

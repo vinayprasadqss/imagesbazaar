@@ -6,7 +6,7 @@ import ImageScroll from './components/ImageScroll';
 import Footer from "./components/Footer";
 
 const App =()=>{
-    const [searchTerm, setSearchTerm] = useState("202202");
+    const [searchTerm, setSearchTerm] = useState("");
     const [filterTerm, setFilterTerm] = useState({});
     const [imagesList,setImagesList] = useState([]);
     const[count, setCount] = useState(null);

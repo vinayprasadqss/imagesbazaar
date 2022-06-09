@@ -69,20 +69,20 @@ const ImageScroll = ({searchTerm, filterTerm, imagesList,setImagesList, setCount
                         loader={<h4>Loading...</h4>}
                     >
                         {
-                            imagesList && imagesList.length>0 && imagesList.map((item, index)=>{
+                            (imagesList && imagesList.length>0) ? imagesList.map((item, index)=>{
                                 let templateStringForImage = `/dummy/${item?.image?.srNo}.jpg`;
-                                let dummyImg = item?.image?.srNo<30 ?templateStringForImage :"/dummy/19.jpg"
+                                let dummyImg = item?.image?.srNo<30 ?templateStringForImage :"/dummy/19.jpg";
                                 return(
                                     <div key={item?.image?.imageId +1} className={`item ${(item?.image?.keyword.toLowerCase().includes("vertical")?"V":"H")}`}>
                                         <LazyLoadImage
                                             alt={item?.image?.keyword}
-                                            src={dummyImg}/>
+                                            src={item?.image?.imageUrl}/>
                                         <div className="titleWrap">
                                             <p>{item?.image?.imageId}</p>
                                         </div>
                                     </div>
                                 )
-                            })
+                            }):<div className={"notSearchValue"}>Search Not Found</div>
                         }
                     </InfiniteScroll>
 

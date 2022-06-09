@@ -1,57 +1,81 @@
 import React from 'react';
 import CheckBoxGroup from "./CheckBoxGroup";
 
-const person_Label = [
-    "1 Person Only",
-    "2 Person",
-    "3-5 Person",
-    "Groups / Crowd",
-    "Without People"
+const person =[
+    {
+       label:"1 Person Only",
+       value:"one"
+    },
+    {
+        label:"2 Person",
+        value:"two"
+    },
+    {
+        label:"3-5 Person",
+        value:"3-5"
+    },
+    {
+        label:"Groups / Crowd",
+        value:"crowds"
+    },
+    {
+        label:"Without People",
+        value:"nobody"
+    },
 ]
-const location_Label = [
-    "Indoor",
-    "Outdoor",
-    "Studio Shot"
+const location =[
+    {
+        label:"Indoor",
+        value:"indoor"
+    },
+    {
+        label:"Outdoor",
+        value:"outdoor"
+    },
+    {
+        label:"Studio Shot",
+        value:"studio shot"
+    },
+
 ]
+
 
 const ageValues = [
     {
         label:"Baby",
-        value:"0-7 Years"
+        value:"babies"
     },
     {
         label:"Child",
-        value:"7-20 Years"
+        value:"kid"
     },
     {
         label:"Teenager",
-        value:"20-25 Years"
+        value:"teenager"
     },
     {
         label:"Young Adult",
-        value:"25-30 Years"
+        value:"20-30"
     },
     {
         label:"Mature Adult",
-        value:"30-40 Years"
+        value:"40-50"
     },
     {
         label:"Senior Adult",
-        value:"40-50 Years"
+        value:"senior"
     }
     ]
-const age_Value =[
-    "0-7 Years",
-    "7-20 Years",
-    "20-25 Years",
-    "25-30 Years",
-    "30-40 Years",
-    "40-50 Years",
 
-]
-const orientation_Label = [
-    "Horizontal",
-    "Vertical",
+const orientation =[
+    {
+        label:"Horizontal",
+        value:"horizontal"
+    },
+    {
+        label:"Vertical",
+        value:"vertical"
+    },
 ]
 
 const Filter =({filterTerm, setFilterTerm, count, searchTerm, setImagesList})=>{
@@ -82,9 +106,9 @@ const Filter =({filterTerm, setFilterTerm, count, searchTerm, setImagesList})=>{
                                     <div className="col-sm-3 col-6">
                                         <h3>People</h3>
                                         {
-                                            person_Label.map((item, index)=>{
+                                            person.map((item, index)=>{
                                                 return(
-                                                    <CheckBoxGroup key={"person"+ index} name={"person"} value={item} label={item}
+                                                    <CheckBoxGroup key={"person"+ index} name={"person"} value={item.value} label={item.label}
                                                                    onChange={(event)=>{setImagesList([]);setFilterTerm({...filterTerm,person:event.target.value})}}/>
                                                 )
                                             })
@@ -93,9 +117,9 @@ const Filter =({filterTerm, setFilterTerm, count, searchTerm, setImagesList})=>{
                                     <div className="col-sm-3 col-6">
                                         <h3>Location</h3>
                                         {
-                                            location_Label.map((item, index)=>{
+                                            location.map((item, index)=>{
                                                 return(
-                                                    <CheckBoxGroup key={"location"+ index} name={"location"} value={item} label={item}
+                                                    <CheckBoxGroup key={"location"+ index} name={"location"} value={item.value} label={item.label}
                                                                    onChange={(event)=>{setImagesList([]);setFilterTerm({...filterTerm,location:event.target.value})}}/>
                                                 )
                                             })
@@ -115,9 +139,9 @@ const Filter =({filterTerm, setFilterTerm, count, searchTerm, setImagesList})=>{
                                     <div className="col-sm-3 col-6">
                                         <h3>Orientation</h3>
                                         {
-                                            orientation_Label.map((item, index)=>{
+                                            orientation.map((item, index)=>{
                                                 return(
-                                                    <CheckBoxGroup key={"person"+ index} name={"orientation"} value={item} label={item}
+                                                    <CheckBoxGroup key={"person"+ index} name={"orientation"} value={item.value} label={item.label}
                                                                    onChange={(event)=>{setImagesList([]);setFilterTerm({...filterTerm,orientation:event.target.value})}}/>
                                                 )
                                             })

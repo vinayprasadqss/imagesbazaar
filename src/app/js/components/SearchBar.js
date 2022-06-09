@@ -4,7 +4,7 @@ import {suggestions} from './../Constant';
 
 
 const SearchBar =({setSearchTerm,setImagesList})=>{
-    const [searchValue, setSearchValue] =useState("202202");
+    const [searchValue, setSearchValue] =useState("");
 
     const [filteredSuggestions, setFilteredSuggestions] = useState([]);
     const [activeSuggestionIndex, setActiveSuggestionIndex] = useState(0);
