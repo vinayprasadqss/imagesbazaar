@@ -97,6 +97,7 @@ const Filter =({filterTerm, setFilterTerm, count, searchTerm, setImagesList})=>{
         setImagesList([]);
         setFilterTerm({...filterTerm,[classname]:event.target.checked ? event.target.value:''})
     }
+    let filterAllValue = searchTerm || filterTerm.person || filterTerm.location || filterTerm.age || filterTerm.orientation;
     return(
         <section className={"filterWrap"}>
             <div className="container-fluid">
@@ -110,7 +111,15 @@ const Filter =({filterTerm, setFilterTerm, count, searchTerm, setImagesList})=>{
                         </div>
                         <p>
                             <strong>
-                                {count} images {searchTerm && "for " +'"' +searchTerm+'"' }
+                                {count} images {(searchTerm ||filterAllValue) && ("for " +'" ' + (searchTerm && searchTerm+" "))}
+                                <span>
+                                    {filterTerm.person && " "+filterTerm.person }
+                                    {filterTerm.location && " "+ filterTerm.location }
+                                    {filterTerm.age && " "+ filterTerm.age }
+                                    {filterTerm.orientation && " "+ filterTerm.orientation}
+                                </span>
+                                {(searchTerm ||filterAllValue) && ' "' }
+
                             </strong>
                         </p>
                         {
