@@ -83,6 +83,20 @@ const Filter =({filterTerm, setFilterTerm, count, searchTerm, setImagesList})=>{
     const onClickFilter =()=>{
         setOpen(!open);
     }
+    const onChangeCheckBox =(event)=>{
+        let classname = event.target.className;
+        let name = document.querySelectorAll(`.${classname}`);
+        if(event.target.checked === true){
+            for(let i =0; i<name.length;i++){
+                name[i].checked = false;
+            }
+            event.target.checked = true;
+        }else if(event.target.checked === false){
+            event.target.checked = false;
+        }
+        setImagesList([]);
+        setFilterTerm({...filterTerm,[classname]:event.target.checked ? event.target.value:''})
+    }
     return(
         <section className={"filterWrap"}>
             <div className="container-fluid">
@@ -108,8 +122,14 @@ const Filter =({filterTerm, setFilterTerm, count, searchTerm, setImagesList})=>{
                                         {
                                             person.map((item, index)=>{
                                                 return(
-                                                    <CheckBoxGroup key={"person"+ index} name={"person"} value={item.value} label={item.label}
-                                                                   onChange={(event)=>{setImagesList([]);setFilterTerm({...filterTerm,person:event.target.value})}}/>
+                                                    <CheckBoxGroup key={"person"+ index}
+                                                                   name={"person"}
+                                                                   value={item.value}
+                                                                   label={item.label}
+                                                                   id={item.label}
+                                                                   className={"person"}
+                                                                   onChange={onChangeCheckBox}
+                                                    />
                                                 )
                                             })
                                         }
@@ -119,8 +139,14 @@ const Filter =({filterTerm, setFilterTerm, count, searchTerm, setImagesList})=>{
                                         {
                                             location.map((item, index)=>{
                                                 return(
-                                                    <CheckBoxGroup key={"location"+ index} name={"location"} value={item.value} label={item.label}
-                                                                   onChange={(event)=>{setImagesList([]);setFilterTerm({...filterTerm,location:event.target.value})}}/>
+                                                    <CheckBoxGroup
+                                                        key={"location"+ index}
+                                                        name={"location"}
+                                                        value={item.value}
+                                                        label={item.label}
+                                                        id={item.label}
+                                                        className={"location"}
+                                                        onChange={onChangeCheckBox}/>
                                                 )
                                             })
                                         }
@@ -130,8 +156,14 @@ const Filter =({filterTerm, setFilterTerm, count, searchTerm, setImagesList})=>{
                                         {
                                             ageValues.map((item, index)=>{
                                                 return(
-                                                    <CheckBoxGroup key={"person"+ index} name={"age"} value={item.value} label={item.label}
-                                                                   onChange={(event)=>{setImagesList([]);setFilterTerm({...filterTerm,age:event.target.value})}}/>
+                                                    <CheckBoxGroup
+                                                        key={"person"+ index}
+                                                        name={"age"}
+                                                        value={item.value}
+                                                        label={item.label}
+                                                        id={item.label}
+                                                        className={"age"}
+                                                        onChange={onChangeCheckBox}/>
                                                 )
                                             })
                                         }
@@ -141,8 +173,14 @@ const Filter =({filterTerm, setFilterTerm, count, searchTerm, setImagesList})=>{
                                         {
                                             orientation.map((item, index)=>{
                                                 return(
-                                                    <CheckBoxGroup key={"person"+ index} name={"orientation"} value={item.value} label={item.label}
-                                                                   onChange={(event)=>{setImagesList([]);setFilterTerm({...filterTerm,orientation:event.target.value})}}/>
+                                                    <CheckBoxGroup
+                                                        key={"person"+ index}
+                                                        name={"orientation"}
+                                                        value={item.value}
+                                                        label={item.label}
+                                                        id={item.label}
+                                                        className={"orientation"}
+                                                        onChange={onChangeCheckBox}/>
                                                 )
                                             })
                                         }

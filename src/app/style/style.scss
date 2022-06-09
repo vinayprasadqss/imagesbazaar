@@ -275,8 +275,8 @@ body::-webkit-scrollbar-thumb {
         object-fit: cover;
         object-position: center;
         cursor: pointer;
-        max-width: 900px;
-        max-height: 600px;
+/*        max-width: 900px;
+        max-height: 600px;*/
         //aspect-ratio: 9/16;
       }
       &:hover{
@@ -304,6 +304,10 @@ body::-webkit-scrollbar-thumb {
       .infinite-scroll-component{
         display: flex;
         flex-wrap: wrap;
+        &:after {
+          content: '';
+          flex-grow: 999999999;
+        }
       }
     }
   }

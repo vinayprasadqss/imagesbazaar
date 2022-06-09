@@ -29,7 +29,7 @@ const ImageScroll = ({searchTerm, filterTerm, imagesList,setImagesList, setCount
         let pageNo=Math.ceil(imagesList.length/PAGE_LIMIT)+1;
         const queryParams = "?page=" + pageNo +"&sortBy=asc";
         const searchValue = searchTerm && searchTerm ;
-        const filterValue = filterTerm && (Object.values(filterTerm));
+        const filterValue = filterTerm && (Object.values(filterTerm).filter(n => n));
         const finalPath = apiPath + searchValue + queryParams + "&searchQuery="+ filterValue;
 
         axios.get(finalPath)
@@ -70,8 +70,8 @@ const ImageScroll = ({searchTerm, filterTerm, imagesList,setImagesList, setCount
                     >
                         {
                             (imagesList && imagesList.length>0) ? imagesList.map((item, index)=>{
-                                let templateStringForImage = `/dummy/${item?.image?.srNo}.jpg`;
-                                let dummyImg = item?.image?.srNo<30 ?templateStringForImage :"/dummy/19.jpg";
+/*                                let templateStringForImage = `/dummy/${item?.image?.srNo}.jpg`;
+                                let dummyImg = item?.image?.srNo<30 ?templateStringForImage :"/dummy/19.jpg";*/
                                 return(
                                     <div key={item?.image?.imageId +1} className={`item ${(item?.image?.keyword.toLowerCase().includes("vertical")?"V":"H")}`}>
                                         <LazyLoadImage
