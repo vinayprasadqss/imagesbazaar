@@ -3,7 +3,7 @@ import {SuggestionsListComponent} from "./AutoComplete";
 import {suggestions} from './../Constant';
 
 
-const SearchBar =({setSearchTerm,setImagesList})=>{
+const SearchBar =({setSearchTerm,setImagesList,searchTerm})=>{
     const [searchValue, setSearchValue] =useState("");
 
     const [filteredSuggestions, setFilteredSuggestions] = useState([]);
@@ -31,11 +31,16 @@ const SearchBar =({setSearchTerm,setImagesList})=>{
     }
     const onSearchSubmit=(event)=>{
         event.preventDefault();
-        if(searchValue){
+
+        if(searchValue!=searchTerm){
             setImagesList([])
             setSearchTerm(searchValue);
-        }else {
-            alert("Please type in Search Field")
+        }else{
+            if(searchValue.length==0){
+                alert("Please type in Search Field")
+            }else{
+                console.log("Old search value and new value same")
+            }
         }
 
     }
